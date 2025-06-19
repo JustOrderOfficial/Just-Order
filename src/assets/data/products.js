@@ -54,7 +54,7 @@ const products = [
     "sizes": ["M", "L", "XL"],
     "colors": ["Olive Green"],
     "gender": "Men",
-    "tags": ["Best Seller", "Limited Edition"],
+    "tags": ["Best Seller"],
     "inStock": true,
     "description": "Stylish bomber jacket with ribbed cuffs and zip-up front.",
     "images": [
@@ -90,7 +90,7 @@ const products = [
     "sizes": ["S", "M", "L"],
     "colors": ["Beige"],
     "gender": "Unisex",
-    "tags": ["Limited Edition"],
+    "tags": ["New Arrival "],
     "inStock": true,
     "description": "Unique abstract print tee made with soft cotton fabric.",
     "images": [

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Routes, Route } from 'react-router-dom';
-import Footer from '../customer/component/Footer';
+
 import Navbar from '../customer/component/Navbar';
 import HomePage from '../customer/pages/homePage/HomePage';
 import AboutUs from '../customer/pages/aboutUs/AboutUs';
@@ -37,7 +37,7 @@ const CustomerRouters = () => {
         <Route path="/settings" element={<Setting />} />
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
-      <Footer />
+      
     </div>
   );
 };

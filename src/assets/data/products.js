@@ -1,4 +1,4 @@
-import blackHoodie1 from "../t_shirts/blackHoodie.png";
+import blackHoodie1 from "../t_shirts/BlackHoodie.png";
 import blackHoodie2 from "../t_shirts/hoodie.png";
 import blackHoodie3 from "../t_shirts/BlackHoodiewater.png";
 import white_tshirt1 from "../t_shirts/tshirt_white.jpg";

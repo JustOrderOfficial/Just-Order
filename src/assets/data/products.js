@@ -1,12 +1,13 @@
-import blackHoodie1 from "../t_shirts/BlackHoodie.png";
-import blackHoodie2 from "../t_shirts/hoodie.png";
-import blackHoodie3 from "../t_shirts/BlackHoodiewater.png";
-import white_tshirt1 from "../t_shirts/tshirt_white.jpg";
-import white_tshirt2 from "../t_shirts/white_hoodie.png";
-import white_tshirt3 from "../t_shirts/WhiteHoodieshadow.png";
-import jacket from "../t_shirts/Jacket.png";
-import demin from "../t_shirts/demin.jpg";
-import graphic from "../t_shirts/graphic.jpg";
+// import blackHoodie1 from "../assets/images/t_shirts /BlackHoodie.png";
+import blackHoodie1 from "/assets/images/t_shirts/BlackHoodie.png"
+import blackHoodie2 from "/assets/images/t_shirts/hoodie.png";
+import blackHoodie3 from "/assets/images/t_shirts/BlackHoodieWater.png";
+import white_tshirt1 from "/assets/images/t_shirts/tshirt_white.jpg";
+import white_tshirt2 from "/assets/images/t_shirts/White_hoodie.png";
+import white_tshirt3 from "/assets/images/t_shirts/WhiteHoodieshadow.png";
+import jacket from "/assets/images/t_shirts/Jacket.png";
+import demin from "/assets/images/t_shirts/demin.jpg";
+import graphic from "/assets/images/t_shirts/graphic.jpg";
 const products = [
   {
     "id": "prod001",

@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'custom-gradient': 'linear-gradient(180deg, #242424, #080808)',
+        // 'custom-gradient': 'linear-gradient(180deg, #242424, #080808)',
         // Removed invalid 'button-border'
       },
       colors: {

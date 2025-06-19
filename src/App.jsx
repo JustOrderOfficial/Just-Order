@@ -5,16 +5,17 @@ import './App.css'
 import { Routes, Route } from "react-router-dom";
 import CustomerRouters from './Routers/CustomerRouters'
 import AdminRouters from "./Routers/AdminRouters";
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      
+      {/* <Toaster position="top-right" /> */}
       <Routes>
         <Route path="/*" element={<CustomerRouters />} />
-        <Route path="/admin/*" element={<AdminRouters/>} />
+        <Route path="/admin/*" element={<AdminRouters />} />
       </Routes>
     </>
   );

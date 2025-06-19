@@ -1,12 +1,13 @@
-
-import React from 'react'
+import React from "react";
 import heroVideo from "../assets/videos/heroSection.mp4";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <div className="relative video-container h-screen w-full">
+    <div className="relative h-screen w-full overflow-hidden rounded-2xl shadow-2xl">
+      {/* Background Video */}
       <video
-        className="w-full h-full object-cover rounded-3xl"
+        className="w-full h-full object-cover"
         autoPlay
         loop
         muted
@@ -15,32 +16,63 @@ const HeroSection = () => {
         <source src={heroVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      {/* Main Heading */}
-      <div className="absolute bottom-20 sm:left-8 md:left-10 bg-[#FFFFFF0F] text-white sm:px-6 sm:py-6 rounded-2xl  sm:text-base md:text-lg lg:text-xl">
-        <span className="left-2">Your one-stop shop for exclusive designs</span>
-        <br />
-        and must-haves
-      </div>
-      {/* First Call-to-Action Box */}
-      <div className="absolute bottom-36 sm:right-8 md:right-10 flex flex-col gap-4 text-center">
-        <div className="bg-[#FFFFFF2B] text-white rounded-lg py-2 px-4 sm:px-6 text-xs sm:text-sm md:text-base lg:text-xl">
-          Redefine your style journey
+
+      {/* Overlay Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-10" />
+
+      {/* Headline Text */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.1, ease: "easeOut" }}
+        className="absolute z-20 bottom-24 sm:left-6 md:left-10 max-w-[80%] sm:max-w-[70%] lg:max-w-[60%]"
+      >
+        <div className="bg-[#1c1c1ed9] backdrop-blur-md text-white px-6 py-5 rounded-3xl shadow-xl">
+          <h1
+            className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-wide"
+            style={{ fontFamily: "'Poppins', sans-serif" }}
+          >
+            Your one-stop shop for{" "}
+            <span className="text-orange-400">exclusive designs</span>
+          </h1>
+          <p
+            className="mt-3 text-gray-300 text-sm sm:text-base md:text-lg"
+            style={{ fontFamily: "'Outfit', sans-serif" }}
+          >
+            Must-haves for every{" "}
+            <span className="text-orange-300 font-semibold">vibe</span> &{" "}
+            <span className="text-orange-500 font-semibold">season</span>.
+          </p>
         </div>
-      </div>
-      {/* Second Call-to-Action Box */}
-      <div className="absolute bottom-24 right-4 sm:right-8 md:right-10 flex flex-col">
-        <div className="bg-[#FFFFFF2B] text-white rounded-lg py-2 px-4 sm:px-6 text-xs sm:text-sm md:text-base lg:text-xl">
-          Discover the joy of effortless shopping
-        </div>
-      </div>
+      </motion.div>
+
+      {/* Floating Call-to-Action Badges */}
+      <motion.div
+        initial={{ x: 50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        className="absolute z-20 bottom-36 right-4 sm:right-8 md:right-12 flex flex-col gap-3 text-right"
+      >
+        <motion.div
+          whileHover={{ scale: 1.07 }}
+          className="bg-[#1c1c1ec0] backdrop-blur-lg text-white rounded-xl px-5 py-3 shadow-md text-xs sm:text-sm md:text-base lg:text-lg transition-all duration-300"
+        >
+          Redefine your{" "}
+          <span className="text-orange-300 font-medium">style journey</span>
+        </motion.div>
+
+        <motion.div
+          whileHover={{ scale: 1.07 }}
+          className="bg-[#1c1c1ec0] backdrop-blur-lg text-white rounded-xl px-5 py-3 shadow-md text-xs sm:text-sm md:text-base lg:text-lg transition-all duration-300"
+        >
+          Discover the joy of{" "}
+          <span className="text-orange-300 font-medium">
+            effortless shopping
+          </span>
+        </motion.div>
+      </motion.div>
     </div>
   );
-}
+};
 
-export default HeroSection
-
-
-
-
-
-    
+export default HeroSection;

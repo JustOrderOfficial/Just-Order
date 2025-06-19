@@ -1,64 +1,91 @@
-
-
-import React from 'react';
+import React, { useState } from "react";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { motion } from "framer-motion";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-function HomeProductCard() {
-  return (
-    <div
-      className="relative flex bg-black text-white rounded-2xl items-center justify-center mx-auto px-4"
-      style={{
-        width: "810px",
-        height: "560px",
-      }}
-    >
-      
 
+function HomeProductCard() {
+  const [liked, setLiked] = useState(false);
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="relative bg-[#18181b] text-white rounded-3xl p-6 mx-auto w-full max-w-6xl shadow-2xl overflow-hidden flex flex-col md:flex-row items-center justify-center backdrop-blur-sm border border-white/10"
+    >
       {/* Product Image */}
-      <div className="relative flex justify-center items-center rounded-lg overflow-hidden p-4 md:w-1/2 ml-2">
+      <motion.div
+        initial={{ scale: 0.95 }}
+        whileHover={{ scale: 1 }}
+        transition={{ type: "spring", stiffness: 120 }}
+        className="relative w-full md:w-1/2 flex items-center justify-center mb-6 md:mb-0"
+      >
         <img
           src="assets/images/t_shirts/black_hoodie.png"
           alt="Hoodie"
-          className="w-full max-w-sm"
-          style={{ maxWidth: "384px" }}
+          className="rounded-2xl max-w-[320px] w-full hover:scale-105 transition-transform duration-500"
         />
-        {/* Icons */}
-        <div className="absolute top-4 right-2 mx-6  my-4 rounded-full shadow-lg transition duration-300 cursor-pointer">
-        <FavoriteBorderIcon className="text-orange-500"
-        style={{fontSize:"30px"}}/>
-      </div>
-         
-        
-      </div>
+        {/* Heart Icon Toggle */}
+        <div
+          className="absolute top-4 right-4 bg-white/10 p-2 rounded-full backdrop-blur-md cursor-pointer shadow-md"
+          onClick={() => setLiked((prev) => !prev)}
+          // Remove motion or hover/whileHover from this div
+        >
+          {liked ? (
+            <FavoriteIcon
+              className="text-red-500"
+              style={{ fontSize: "28px" }}
+            />
+          ) : (
+            <FavoriteBorderIcon
+              className="text-red-500"
+              style={{ fontSize: "28px" }}
+            />
+          )}
+        </div>
+      </motion.div>
 
       {/* Product Details */}
-      <div className="flex flex-col md:text-left md:w-1/2 px-4">
-        <h2 className="text-4xl font-bold leading-tight" style={{
-  fontFamily: "TGS Perfect, sans-serif",
-  fontSize: "50px",
-}}>
-          HUMANS ARE <br />
-          NATURAL DISASTER<br/> HOODIE
+      <motion.div
+        initial={{ x: 30, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="w-full md:w-1/2 px-4 md:px-6 flex flex-col items-start text-left"
+      >
+        <h2
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 tracking-tight leading-snug"
+          style={{ fontFamily: "'Poppins', sans-serif" }}
+        >
+          HUMANS ARE <br /> NATURAL DISASTER <br /> HOODIE
         </h2>
 
         {/* Price Section */}
-        <div className="flex justify-start md:justify-start items-start space-x-4 py-4">
-          <span className="text-gray-500 line-through text-xl">Rs. 1,999</span>
-          <span className="text-white text-xl px-4 border border-orange-500 rounded-full font-semibold">Rs. 1,199</span>
+        <div className="flex items-center gap-4 mb-4">
+          <span className="text-gray-400 line-through text-lg sm:text-xl">
+            ₹1,999
+          </span>
+          <span className="text-emerald-400 font-bold border border-teal-500 rounded-full px-5 py-1 text-lg sm:text-xl">
+            ₹1,199
+          </span>
         </div>
 
         {/* Discount Badge */}
-        <div className="flex justify-start md:justify-start items-start">
-          <span className='bg-orange-500 py-1 px-4 rounded-full text-white font-bold'>-6% OFF</span>
-        </div>
+        <span className="bg-gradient-to-r from-yellow-500 to-orange-400 px-5 py-1 text-sm font-bold rounded-full text-white mb-6 shadow-md">
+          -6% OFF
+        </span>
 
-        {/* Buttons */}
-        <div className="flex flex-col md:flex-row md:space-x-4 space-y-3 md:space-y-0 bottom-16 mt-8 mr-4">
-          <button className="w-full md:w-auto px-20 py-1 text-xl font-bold text-white rounded-3xl bg-orange-500 transition-colors duration-300">
-            BUY IT NOW
-          </button>
-        </div>
-      </div>
-    </div>
+        {/* CTA */}
+        <motion.button
+          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.03 }}
+          transition={{ type: "spring", stiffness: 100 }}
+          className="bg-emerald-500 hover:bg-emerald-600 text-white text-lg font-bold px-10 py-2 rounded-full shadow-lg transition-all duration-300"
+        >
+          BUY IT NOW
+        </motion.button>
+      </motion.div>
+    </motion.div>
   );
 }
 

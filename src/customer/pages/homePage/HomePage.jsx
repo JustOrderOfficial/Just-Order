@@ -18,11 +18,10 @@ import AddressCard from '../../component/Address/AddressCard.jsx';
 
 const HomePage = () => {
   return (
-
-    <div className=" text-white font-sans">
+    <div className=" text-white bg-gradient-to-br from-[#0d1117] to-[#111827] font-sans">
       {/* Hero Section */}
       <section className=" w-full max-w-[1440px] mx-auto rounded-lg p-6 mb-8 px-4">
-       <HeroSection/>
+        <HeroSection />
       </section>
       {/* Product Section */}
       <section className="flex px-4 mt-4 mb-10 justify-center">
@@ -40,19 +39,18 @@ const HomePage = () => {
       </section>
 
       {/* Home New Arrival */}
-      <section className=" w-full max-w-[1440px] mx-auto my-10 px-4">
-        <HomeNewArrival/>
+      <section className=" w-full max-w-[1440px]   mx-auto my-10 px-4">
+        <HomeNewArrival />
       </section>
 
-
       {/* Home All Product */}
-      <section className=" w-full max-w-[1440px] mx-auto my-10 px-4">
+      <section className=" w-full max-w-[1440px]  mx-auto my-10 px-4">
         <HomeAllProducts />
       </section>
 
       {/* Home Offer */}
       <section className=" w-full max-w-[1440px] mx-auto my-10 px-4">
-        <OfferCard/>
+        <OfferCard />
       </section>
 
       {/* Carousel at the Bottom */}
@@ -71,7 +69,7 @@ const HomePage = () => {
             </main> */}
       {/* <ProductCarousel/> */}
 
-    <ProductDetails/> 
+      <ProductDetails />
     </div>
   );
 };

@@ -9,6 +9,11 @@ import Support from '../customer/pages/support/Support.jsx';
 import Checkout from '../customer/pages/Category/Checkout';
 import SignIn from '../customer/pages/login/SignIn';
 import SignUp from '../customer/pages/login/SignUp';
+import Profile from '../customer/pages/Profile/Profile.jsx';
+import Order from '../customer/pages/order/Order.jsx';
+import Setting from '../customer/pages/setting/Setting.jsx';
+import ProductView from '../customer/component/Product/ProductView.jsx';
+import CartPage from '../customer/pages/cart/CartPage.jsx';
 // import NotFound from './customer/pages/not-found/NotFound';
 
 const CustomerRouters = () => {
@@ -24,6 +29,12 @@ const CustomerRouters = () => {
         <Route path="/Category/Checkout" element={<Checkout />} />
         <Route path="/login/SignIn" element={<SignIn />} />
         <Route path="/login/SignUp" element={<SignUp />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/orders" element={<Order />} />
+        <Route path='/product/:id' element={<ProductView />} />
+        <Route path='/cart' element={<CartPage/>}/>
+       
+        <Route path="/settings" element={<Setting />} />
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
       <Footer />

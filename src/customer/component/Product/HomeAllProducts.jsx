@@ -1,18 +1,12 @@
-
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
 import { Link } from "react-router-dom";
+import products from "../../../assets/data/products";
 
 function HomeAllProducts() {
-  const products = [
-    { id: 1, name: "Ramy Coat", price: "₹115.00", reviews: "971", image: "./assets/images/t_shirts/Black_Full_Tshirt.png" },
-    { id: 2, name: "Vayo Sweater", price: "₹105.00", reviews: "1k", image: "./assets/images/t_shirts/BlueHoodie.png" },
-    { id: 3, name: "Baro Leather Jacket", price: "₹125.00", reviews: "1k", image: "./assets/images/t_shirts/BlackHoodie.png" },
-    { id: 4, name: "Emy Blue Blazer", price: "₹105.00", reviews: "1k", image: "./assets/images/t_shirts/Black_Full_Tshirt.png" },
-  ];
-
   const [wishlist, setWishlist] = useState({});
 
   const toggleWishlist = (id) => {
@@ -23,60 +17,76 @@ function HomeAllProducts() {
   };
 
   return (
-    <div className="text-white py-8 px-2">
+    <div className="bg-black text-white py-8 px-6 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">
-          All Products <span className="text-gray-400">(1107 Items)</span>
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-4xl font-extrabold tracking-wide text-white">
+          All Products{" "}
+          <span className="text-gray-400 text-lg font-normal">
+            (1107 Items)
+          </span>
         </h1>
         <Link to="/Category/ProductGrid">
-        <button className="bg-orange-500 text-white px-4 py-2 rounded-full font-bold hover:bg-orange-600 transition">
-          See All Items
-        </button>
+          <button className="bg-orange-600 hover:bg-orange-700 transition-colors duration-300 px-6 py-2 rounded-full font-semibold shadow-md text-white">
+            See All Items
+          </button>
         </Link>
       </div>
 
-      {/* Product Grid */}
-      <div className="flex flex-col-1 flex-row gap-4">
+      {/* Products Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {products.map((product) => (
-          <div key={product.id} className="relative">
+          <Link to={`/product/${product.id}`} key={product.id}>
+          <motion.div
+            key={product.id}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 150 }}
+            className="relative bg-[#0f0f0f] border border-[#2d2d2d] rounded-3xl shadow-md overflow-hidden"
+          >
             {/* Product Image */}
             <img
-              src={product.image}
+              src={product.images[0]}
               alt={product.name}
-              className="w-full h-auto object-cover rounded-3xl hover:scale-105 transition-transform duration-300"
+              className="w-full h-64 object-cover rounded-t-3xl transition-transform duration-300 hover:scale-105"
             />
 
             {/* Wishlist Icon */}
-            <div className="">
             <div
-              className="absolute top-1 right-4 rounded-full py-2 cursor-pointer"
               onClick={() => toggleWishlist(product.id)}
+              className="absolute top-4 right-4 cursor-pointer rounded-full p-2 bg-[#2d2d2d] hover:bg-orange-600 transition-colors duration-300"
             >
               {wishlist[product.id] ? (
-                <FavoriteIcon className="text-orange-500 text-xl"
-                style={{fontSize:"30px"}} />
+                <FavoriteIcon
+                  className="text-orange-400"
+                  style={{ fontSize: 30 }}
+                />
               ) : (
-                <FavoriteBorderIcon className="text-orange-500 text-xl"
-                style={{fontSize:"30px"}} />
+                <FavoriteBorderIcon
+                  className="text-orange-400"
+                  style={{ fontSize: 30 }}
+                />
               )}
-            </div>
             </div>
 
             {/* Product Details */}
-            <div className="mt-4">
-              <h2 className="flex text-xl ml-2 font-semibold">{product.name}</h2>
-              <div className="flex ml-2 text-yellow-400">
+            <div className="p-4">
+              <h2 className="text-xl font-semibold mb-1 text-white">
+                {product.name}
+              </h2>
+              <div className="flex items-center space-x-1 text-orange-400 mb-2">
                 {[...Array(5)].map((_, i) => (
                   <StarIcon key={i} fontSize="small" />
                 ))}
-                <span className="text-gray-400 text-sm">
+                <span className="text-gray-400 text-sm ml-2">
                   ({product.reviews} Reviews)
                 </span>
               </div>
-              <p className="flex text-xl ml-3 font-bold mt-2">{product.price}</p>
+              <p className="text-xl font-bold text-orange-500">
+                {product.price}
+              </p>
             </div>
-          </div>
+          </motion.div>
+          </Link>
         ))}
       </div>
     </div>
@@ -84,4 +94,3 @@ function HomeAllProducts() {
 }
 
 export default HomeAllProducts;
-

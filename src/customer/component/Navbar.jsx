@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import PersonIcon from "@mui/icons-material/Person";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
+import { useEffect, useRef } from "react";
+
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,6 +18,22 @@ const Navbar = () => {
   const [userLoggedIn, setUserLoggedIn] = useState(true);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  const profileRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setProfileOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
 
   return (
     <div className="bg-[#0f0f0f] border border-[#2e2e2e] sticky top-4 z-50 text-white flex items-center justify-between px-6 py-4 rounded-2xl mx-6 shadow-lg">
@@ -64,7 +82,7 @@ const Navbar = () => {
             </div>
           </Link>
 
-          <div className="relative">
+          <div className="relative" ref={profileRef}>
             {userLoggedIn ? (
               <div
                 onClick={() => setProfileOpen(!profileOpen)}
@@ -86,11 +104,7 @@ const Navbar = () => {
 
             {profileOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg z-50 text-sm">
-                {[
-                  { label: "User Profile", path: "/profile" },
-                  { label: "Orders", path: "/orders" },
-                  { label: "Settings", path: "/settings" },
-                ].map((item) => (
+                {[{ label: "User Profile", path: "/profile" }].map((item) => (
                   <Link
                     key={item.label}
                     to={item.path}

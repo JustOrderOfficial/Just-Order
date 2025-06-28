@@ -72,9 +72,11 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex gap-4 items-center">
-          <div className="rounded-full p-2 bg-[#1c1c1e] hover:bg-orange-400 hover:text-black transition cursor-pointer">
-            <FavoriteBorderIcon />
-          </div>
+          <Link to="/favorites">
+            <div className="rounded-full p-2 bg-[#1c1c1e] hover:bg-orange-400 hover:text-black transition cursor-pointer">
+              <FavoriteBorderIcon />
+            </div>
+          </Link>
 
           <Link to="/cart">
             <div className="rounded-full p-2 bg-[#1c1c1e] hover:bg-orange-400 hover:text-black transition cursor-pointer">
@@ -173,7 +175,10 @@ const Navbar = () => {
           </div>
 
           <div className="flex gap-4 mt-3">
-            <FavoriteBorderIcon className="text-orange-400 hover:text-white cursor-pointer" />
+            <Link to="/cart">
+              <FavoriteBorderIcon className="text-orange-400 hover:text-white cursor-pointer" />
+            </Link>
+
             {/* <Link to="/Category/Checkout">
               <ShoppingCartOutlinedIcon className="text-orange-400 hover:text-white cursor-pointer" />
             </Link> */}

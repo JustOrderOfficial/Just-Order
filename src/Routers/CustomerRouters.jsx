@@ -15,6 +15,8 @@ import Setting from '../customer/pages/setting/Setting.jsx';
 import ProductView from '../customer/component/Product/ProductView.jsx';
 import CartPage from '../customer/pages/cart/CartPage.jsx';
 import ProfilePage from '../customer/pages/profilePage/ProfilePage.jsx';
+import Favourite from '../customer/pages/fav/Favourite.jsx';
+
 // import NotFound from './customer/pages/not-found/NotFound';
 
 const CustomerRouters = () => {
@@ -32,13 +34,13 @@ const CustomerRouters = () => {
         <Route path="/login/SignUp" element={<SignUp />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/orders" element={<Order />} />
-        <Route path='/product/:id' element={<ProductView />} />
-        <Route path='/cart' element={<CartPage/>}/>
-       
+        <Route path="/product/:id" element={<ProductView />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/favorites" element={<Favourite />} />
+
         <Route path="/settings" element={<Setting />} />
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
-      
     </div>
   );
 };

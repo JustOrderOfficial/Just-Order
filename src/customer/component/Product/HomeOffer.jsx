@@ -1,7 +1,5 @@
-
 import { motion } from "framer-motion";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
-
 
 const OfferCard = () => {
   return (
@@ -16,36 +14,48 @@ const OfferCard = () => {
         style={{ borderWidth: "1.5px" }}
       >
         {/* Image Section */}
-        <div className="flex-shrink-0 w-full md:w-72 relative">
+        <div className="w-full md:w-72 h-64 md:h-auto relative">
           <img
             src="./assets/images/t_shirts/Offer.png"
             alt="Back view of T-shirt"
             className="w-full h-full object-cover object-center rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none"
-            style={{ minHeight: "280px" }}
           />
         </div>
 
         {/* Content Section */}
         <div className="flex flex-col justify-center px-4 sm:px-6 py-6 text-white relative flex-1">
           {/* Discount Badge */}
-          <span className="absolute top-4 right-4 bg-gradient-to-r from-orange-400 to-orange-600 text-white font-bold px-4 py-1 rounded-full shadow-lg text-sm flex items-center gap-1 select-none">
-            <LocalOfferIcon fontSize="small" className="text-white" />
-            50% OFF
+          {/* Discount Badge */}
+          <span
+            className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-gradient-to-r from-orange-400 to-orange-600 text-white font-bold px-2 py-0.5 sm:px-4 sm:py-1.5 rounded-full shadow-md text-[10px] xs:text-xs sm:text-sm flex items-center gap-1 select-none whitespace-nowrap z-10"
+            style={{ minWidth: "60px", justifyContent: "center" }}
+          >
+            <LocalOfferIcon
+              fontSize="inherit"
+              className="text-white"
+              style={{
+                fontSize: "12px", // slightly larger for better visibility
+                minWidth: "14px",
+                minHeight: "14px",
+              }}
+            />
+            <span className="hidden xs:inline">50% OFF</span>
+            <span className="inline xs:hidden">50%</span>
           </span>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight drop-shadow-lg">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold leading-snug drop-shadow-lg pt-5">
             Exclusive Offer:{" "}
             <span className="text-orange-400">Up to 50% off</span>, only for
             this month
           </h2>
 
-          <p className="mt-3 text-sm sm:text-base md:text-lg text-gray-300 max-w-xl">
+          <p className="mt-2 sm:mt-3 text-sm sm:text-base md:text-lg text-gray-300 max-w-xl">
             Shop now and enjoy up to{" "}
             <span className="font-semibold text-orange-300">50% off</span> on
             selected items. Limited time only!
           </p>
 
-          <button className="mt-6 sm:mt-8 w-full sm:w-44 py-3 bg-orange-500 hover:bg-orange-600 rounded-3xl font-bold text-white text-sm sm:text-lg shadow-lg transition duration-300 flex items-center justify-center gap-2 select-none">
+          <button className="mt-5 sm:mt-6 w-full sm:w-44 py-3 bg-orange-500 hover:bg-orange-600 rounded-3xl font-bold text-white text-sm sm:text-lg shadow-lg transition duration-300 flex items-center justify-center gap-2 select-none">
             <LocalOfferIcon fontSize="small" className="text-white" />
             Shop Now
           </button>

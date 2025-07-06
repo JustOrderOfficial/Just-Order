@@ -1,25 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { InputBase } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PersonIcon from "@mui/icons-material/Person";
-import toast from "react-hot-toast";
-import { Toaster } from "react-hot-toast";
-import { useEffect, useRef } from "react";
-
-
+import toast, { Toaster } from "react-hot-toast";
+import { useAuth } from "../../context/AuthContext";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
-  const [userLoggedIn, setUserLoggedIn] = useState(true);
+  const profileRef = useRef();
+  const navigate = useNavigate();
+
+  const { logout, user } = useAuth(); // ✅ pulls from AuthContext
+  const userLoggedIn = !!user;
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
-
-  const profileRef = useRef();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -34,7 +33,6 @@ const Navbar = () => {
     };
   }, []);
 
-
   return (
     <div className="bg-[#0f0f0f] border border-[#2e2e2e] sticky top-4 z-50 text-white flex items-center justify-between px-6 py-4 rounded-2xl mx-6 shadow-lg">
       <Toaster />
@@ -43,7 +41,7 @@ const Navbar = () => {
       </div>
 
       <div className="hidden md:flex gap-8 font-medium text-sm tracking-wide">
-        {["Home", "About", "Collection", "Support"].map((name, i) => (
+        {["Home", "About", "Collection", "Support"].map((name) => (
           <Link
             key={name}
             to={
@@ -118,9 +116,10 @@ const Navbar = () => {
                 ))}
                 <div
                   onClick={() => {
-                    setUserLoggedIn(false);
+                    logout(); // ✅ triggers AuthContext logout
                     toast.error("You have been logged out");
                     setProfileOpen(false);
+                    navigate("/login/SignIn"); // ✅ optional: redirect to login
                   }}
                   className="block px-4 py-2 text-red-500 hover:bg-orange-100 cursor-pointer"
                 >
@@ -179,12 +178,10 @@ const Navbar = () => {
               <FavoriteBorderIcon className="text-orange-400 hover:text-white cursor-pointer" />
             </Link>
 
-            {/* <Link to="/Category/Checkout">
-              <ShoppingCartOutlinedIcon className="text-orange-400 hover:text-white cursor-pointer" />
-            </Link> */}
             <Link to="/cart">
               <ShoppingCartOutlinedIcon className="text-orange-400 hover:text-white cursor-pointer" />
             </Link>
+
             <Link to="/profile">
               <PersonIcon className="text-orange-400 hover:text-white cursor-pointer" />
             </Link>

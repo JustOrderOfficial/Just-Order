@@ -3,9 +3,11 @@ import Profile from "../Profile/Profile";
 import Order from "../order/Order";
 import Address from "../address/Address";
 import Setting from "../setting/Setting";
+import { useAuth } from "../../../context/AuthContext"; // ✅ import
 
 const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState("profile");
+  const { user } = useAuth(); // ✅ get user from context
 
   const renderContent = () => {
     switch (activeTab) {
@@ -22,13 +24,15 @@ const ProfilePage = () => {
     }
   };
 
+  const fullName = user ? `${user.firstName} ${user.lastName}`.trim() : "Loading..."; // ✅ combine first + last
+
   return (
     <div className="min-h-screen bg-black text-white flex flex-col sm:flex-row">
       {/* Sidebar */}
       <aside className="w-full sm:w-64 bg-[#1a1a1a] sm:h-screen border-b sm:border-b-0 sm:border-r border-gray-800 p-6">
         <div className="sticky top-0">
           <h2 className="text-xl font-bold mb-1 text-white">Account</h2>
-          <p className="text-sm text-gray-400 mb-6">Nikita Choudhary</p>
+          <p className="text-sm text-gray-400 mb-6">{fullName}</p> {/* ✅ dynamic name */}
 
           <nav className="space-y-2 text-sm">
             {[

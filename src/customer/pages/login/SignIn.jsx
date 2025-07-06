@@ -9,11 +9,13 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import signin from "/assets/images/Sign.png";
 import API_BASE_URL from "../../../config";
 import { useGoogleLogin } from "@react-oauth/google";
+import { useAuth } from "../../../context/AuthContext"; // ✅ Added
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
+  const { login } = useAuth(); // ✅ Added
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,11 +28,11 @@ const SignIn = () => {
       const res = await axios.post(`${API_BASE_URL}/api/auth/login`, formData);
       const { token, user } = res.data;
 
-      // Store JWT
       localStorage.setItem("jwt", token);
       console.log("✅ JWT token stored:", token);
       console.log("👤 User logged in:", user);
 
+      login(user, token); // ✅ Set in context
       alert("Login successful!");
       navigate("/");
     } catch (err) {
@@ -44,7 +46,6 @@ const SignIn = () => {
     onSuccess: async (tokenResponse) => {
       try {
         console.log("🔓 Google token response:", tokenResponse);
-
         const { access_token } = tokenResponse;
 
         const userInfoRes = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
@@ -64,6 +65,7 @@ const SignIn = () => {
         console.log("✅ JWT token stored (Google):", token);
         console.log("👤 Google User saved:", user);
 
+        login(user, token); // ✅ Set in context
         alert("Google login successful!");
         navigate("/");
       } catch (err) {

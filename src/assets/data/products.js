@@ -7,6 +7,8 @@ import white_tshirt3 from "/assets/images/t_shirts/WhiteHoodieshadow.png";
 import jacket from "/assets/images/t_shirts/Jacket.png";
 import demin from "/assets/images/t_shirts/demin.jpg";
 import graphic from "/assets/images/t_shirts/graphic.jpg";
+import black_full from "/assets/images/t_shirts/Black_Full_Tshirt.png";
+import blueHoodie from "/assets/images/t_shirts/BlueHoodie.png";
 
 const products = [
   {
@@ -26,7 +28,7 @@ const products = [
     fabric: "100% Cotton",
     fit: "Regular",
     gsm: "300",
-    images: [blackHoodie1, blackHoodie2, blackHoodie3]
+    images: [blackHoodie1, blackHoodie2, blackHoodie3],
   },
   {
     id: "prod002",
@@ -45,7 +47,7 @@ const products = [
     fabric: "Organic Cotton",
     fit: "Loose",
     gsm: "180",
-    images: [white_tshirt1, white_tshirt2, white_tshirt3]
+    images: [white_tshirt1, white_tshirt2, white_tshirt3],
   },
   {
     id: "prod003",
@@ -64,7 +66,7 @@ const products = [
     fabric: "Polyester",
     fit: "Slim",
     gsm: "250",
-    images: [jacket, blackHoodie2, blackHoodie3]
+    images: [jacket, blackHoodie2, blackHoodie3],
   },
   {
     id: "prod004",
@@ -83,7 +85,7 @@ const products = [
     fabric: "Denim",
     fit: "Regular",
     gsm: "350",
-    images: [demin, blackHoodie2, blackHoodie3]
+    images: [demin, blackHoodie2, blackHoodie3],
   },
   {
     id: "prod005",
@@ -102,8 +104,86 @@ const products = [
     fabric: "Cotton",
     fit: "Regular",
     gsm: "200",
-    images: [graphic, blackHoodie2, blackHoodie3]
-  }
+    images: [graphic, blackHoodie2, blackHoodie3],
+  },
+
+  {
+    id: "prod006",
+    name: "Ramy Coat",
+    category: "Coat",
+    price: 1150,
+    discount: 0,
+    sizes: ["M", "L"],
+    colors: ["Black"],
+    gender: "Women",
+    tags: ["Classic"],
+    inStock: true,
+    rating: 4,
+    reviews: 971,
+    description: "Elegant coat with a soft lining, ideal for formal occasions.",
+    fabric: "Wool Blend",
+    fit: "Regular",
+    gsm: "400",
+    images: [black_full, blackHoodie2, blackHoodie3],
+  },
+  {
+    id: "prod007",
+    name: "Vayo Sweater",
+    category: "Sweater",
+    price: 1050,
+    discount: 0,
+    sizes: ["S", "M", "L"],
+    colors: ["Blue"],
+    gender: "Unisex",
+    tags: ["Winter"],
+    inStock: true,
+    rating: 4,
+    reviews: 1000,
+    description: "Soft knit sweater designed for warmth and comfort.",
+    fabric: "Wool",
+    fit: "Regular",
+    gsm: "320",
+    images: [blueHoodie, blackHoodie2, blackHoodie3],
+  },
+  {
+    id: "prod008",
+    name: "Baro Leather Jacket",
+    category: "Jacket",
+    price: 1250,
+    discount: 0,
+    sizes: ["M", "L"],
+    colors: ["Black"],
+    gender: "Men",
+    tags: ["Premium"],
+    inStock: true,
+    rating: 4,
+    reviews: 1000,
+    description: "Luxurious leather jacket with a bold silhouette.",
+    fabric: "Genuine Leather",
+    fit: "Slim",
+    gsm: "400",
+    images: [blackHoodie1, blackHoodie2, blackHoodie3],
+  },
+  {
+    id: "prod009",
+    name: "Emy Blue Blazer",
+    category: "Blazer",
+    price: 1050,
+    discount: 0,
+    sizes: ["M", "L"],
+    colors: ["Blue"],
+    gender: "Women",
+    tags: ["Formal"],
+    inStock: true,
+    rating: 4,
+    reviews: 1000,
+    description: "Professional blue blazer perfect for office wear.",
+    fabric: "Poly-viscose",
+    fit: "Slim",
+    gsm: "280",
+    images: [black_full, blackHoodie2, blackHoodie3],
+  },
 ];
 
 export default products;
+

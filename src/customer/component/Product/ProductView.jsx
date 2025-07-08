@@ -8,6 +8,10 @@ function ProductView() {
   const { id } = useParams();
   const product = products.find((item) => item.id === id);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   const [selectedSize, setSelectedSize] = useState(product?.sizes?.[0] || "");
   const [count, setCount] = useState(1);
   const [selectedImage, setSelectedImage] = useState(product?.images?.[0]);

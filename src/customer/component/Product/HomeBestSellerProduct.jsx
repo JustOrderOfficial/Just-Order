@@ -44,16 +44,29 @@ function HomeBestSellerProduct() {
               className="relative bg-[#1a1a1a] rounded-2xl p-3 sm:p-4 shadow-md hover:shadow-orange-400/30 transition-shadow"
             >
               {/* Product Image */}
-              <div className="relative">
-                <img
-                  src={product.images[0]}
-                  alt={product.name}
-                  className="rounded-xl object-cover w-full h-52 sm:h-64 md:h-72 lg:h-64 xl:h-60 2xl:h-72 hover:scale-105 transition-transform duration-300"
-                />
+              <div className="relative group">
+                <div className="overflow-hidden rounded-xl">
+                  <img
+                    src={product.images[0]}
+                    alt={product.name}
+                    className="
+        w-full 
+        object-cover 
+        rounded-xl 
+        aspect-[4/5]    /* keeps consistent ratio */
+        sm:aspect-[3/4] 
+        md:aspect-[4/5]
+        group-hover:scale-105 
+        transition-transform 
+        duration-300
+      "
+                  />
+                </div>
+
                 {/* Wishlist Icon */}
                 <div
                   onClick={(e) => {
-                    e.preventDefault(); // prevent link trigger
+                    e.preventDefault();
                     toggleWishlist(product.id);
                   }}
                   className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-white/10 p-1.5 sm:p-2 rounded-full backdrop-blur-sm shadow-md cursor-pointer"

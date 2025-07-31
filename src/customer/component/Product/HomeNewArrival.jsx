@@ -43,11 +43,19 @@ const NewArrival = () => {
                 className="relative bg-[#1a1a1a] border border-orange-400/20 rounded-3xl shadow-md shadow-black/30 flex flex-col sm:flex-row overflow-hidden"
               >
                 {/* Image */}
-                <div className="sm:w-56 w-full">
+               
+                <div className="sm:w-56 w-full overflow-hidden rounded-t-3xl sm:rounded-l-3xl sm:rounded-tr-none">
                   <img
                     src={product.images?.[0]}
                     alt={product.name}
-                    className="h-52 sm:h-64 md:h-full w-full object-cover transition-transform duration-300 hover:scale-105 sm:rounded-l-3xl"
+                    className="
+      w-full 
+      object-cover 
+      aspect-[4/5] sm:aspect-[3/4] 
+      transition-transform 
+      duration-300 
+      sm:group-hover:scale-105
+    "
                   />
                 </div>
 

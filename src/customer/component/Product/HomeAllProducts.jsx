@@ -35,20 +35,22 @@ function HomeAllProducts() {
       </div>
 
       {/* Products Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
         {products.map((product) => (
           <Link to={`/product/${product.id}`} key={product.id}>
             <motion.div
-              whileHover={{ scale: 1.04 }}
+              whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 140 }}
-              className="relative bg-[#0f0f0f] border border-[#2d2d2d] rounded-3xl shadow-md overflow-hidden"
+              className="relative bg-[#0f0f0f] border border-[#2d2d2d] rounded-3xl shadow-md overflow-hidden group"
             >
               {/* Product Image */}
-              <img
-                src={product.images[0]}
-                alt={product.name}
-                className="w-full h-52 sm:h-64 md:h-72 object-cover rounded-t-3xl transition-transform duration-300 hover:scale-105"
-              />
+              <div className="overflow-hidden rounded-t-3xl">
+                <img
+                  src={product.images[0]}
+                  alt={product.name}
+                  className="w-full object-cover aspect-[4/5] sm:aspect-[3/4] transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
 
               {/* Wishlist Icon */}
               <div
